@@ -101,10 +101,19 @@
 }
 
 .home-image img {
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+  width: 413px;
+  height: 531px;
+  border-radius: 50%;
+  border: 5px solid var(--navbar-hover);
+  object-fit: fill;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+  transition: transform 0.3s ease;
 }
+
+.home-image img:hover {
+  transform: scale(1.05);
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import logo from "../assets/favicon.png"; // ✅ Make sure path is correct
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,6 +20,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo" onClick={() => handleNavClick("home")}>
+        <img src={logo} alt="Logo" className="navbar-logo" />
         <span className="logo-text">Samrat Desai</span>
       </div>
 
