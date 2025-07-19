@@ -1,0 +1,123 @@
+:root {
+  --navbar-bg: #0f172a;
+  --navbar-hover: #38bdf8;
+  --navbar-text: #e2e8f0;
+  --input-bg: #1e293b;
+  --input-border: #334155;
+  --input-placeholder: #94a3b8;
+  --button-bg: #38bdf8;
+  --button-hover: #0ea5e9;
+  --button-text: #0f172a;
+}
+
+.contact {
+  padding: 80px 20px;
+  background: var(--navbar-bg);
+  color: var(--navbar-text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--navbar-hover);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--navbar-hover);
+  margin: 10px auto 0;
+  border-radius: 4px;
+}
+
+.contact-subtext {
+  font-size: 1rem;
+  color: #cbd5e1;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.08);
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--navbar-text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: var(--input-bg);
+  color: var(--navbar-text);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--input-placeholder);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--navbar-hover);
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.send-btn {
+  padding: 12px 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.send-btn:hover {
+  background-color: var(--button-hover);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+}

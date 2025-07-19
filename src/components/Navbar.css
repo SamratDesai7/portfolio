@@ -1,0 +1,125 @@
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  scroll-behavior: smooth;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Theme Variables ===== */
+:root {
+  --navbar-bg: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  --navbar-text: #ffffff;
+  --navbar-hover: #00e5ff;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: var(--navbar-bg);
+  color: var(--navbar-text);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ===== Nav Links ===== */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: var(--navbar-text);
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--navbar-hover);
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--navbar-hover);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* ===== Hamburger (Mobile) ===== */
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--navbar-text);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: var(--navbar-bg);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
+
+  .nav-links.active {
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  .nav-links li {
+    padding: 15px 0;
+    text-align: center;
+  }
+}
+.logo-text {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: #38bdf8;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo-text:hover {
+  transform: scale(1.05);
+}

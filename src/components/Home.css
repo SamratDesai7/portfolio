@@ -1,0 +1,125 @@
+.home-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 10%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--navbar-bg);
+  color: var(--navbar-text);
+}
+
+/* Background animation */
+.animated-bg::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, #00e5ff55, transparent 70%);
+  border-radius: 50%;
+  top: -200px;
+  left: -150px;
+  z-index: 0;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  100% {
+    transform: translateY(40px) translateX(30px);
+  }
+}
+
+.home-content {
+  max-width: 600px;
+  z-index: 1;
+}
+
+.highlight {
+  color: var(--navbar-hover);
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.home-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--navbar-hover);
+}
+
+.home-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 10px 20px;
+  border: 2px solid var(--navbar-hover);
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--navbar-hover);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--navbar-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--navbar-hover);
+}
+
+.btn-secondary:hover {
+  background-color: var(--navbar-hover);
+  color: white;
+}
+
+/* Profile Image */
+.home-image {
+  max-width: 400px;
+  z-index: 1;
+}
+
+.home-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 80px 5%;
+  }
+
+  .home-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .home-image {
+    margin-bottom: 40px;
+  }
+} 

@@ -1,0 +1,13 @@
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+/* Consistent section backgrounds */
+.about,
+.projects,
+.contact,
+.home {
+  background-color: var(--navbar-bg); /* or any shared dark color */
+  color: var(--navbar-text);
+  transition: background 0.4s ease, color 0.4s ease;
+}

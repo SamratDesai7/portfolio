@@ -1,0 +1,119 @@
+/* src/components/About.css */
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 10%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--navbar-bg);
+  color: var(--navbar-text);
+}
+
+/* Match animated glowing background like Home */
+.animated-bg::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, #00e5ff55, transparent 70%);
+  border-radius: 50%;
+  top: -200px;
+  left: -150px;
+  z-index: 0;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  100% {
+    transform: translateY(40px) translateX(30px);
+  }
+}
+
+.about-content {
+  max-width: 1200px;
+  z-index: 1;
+}
+
+.about-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 40px;
+}
+
+.highlight {
+  color: var(--navbar-hover);
+}
+
+/* Grid & Boxes */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.about-box {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 1.8rem;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.about-box:hover {
+  transform: translateY(-8px);
+}
+
+.about-box h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--navbar-hover);
+  border-bottom: 2px solid var(--navbar-hover);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.about-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-box ul li {
+  color: #e2e8f0;
+  margin-bottom: 8px;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.about-box ul li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--navbar-hover);
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 80px 5%;
+    text-align: center;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
