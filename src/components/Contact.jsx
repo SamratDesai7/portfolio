@@ -10,19 +10,23 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
 
   const validate = (formData) => {
-    let newErrors = {};
+    const newErrors = {};
+
     if (!formData.get("user_name").trim()) {
       newErrors.user_name = "Name is required";
     }
+
     const email = formData.get("user_email").trim();
     if (!email) {
       newErrors.user_email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.user_email = "Email is invalid";
     }
+
     if (!formData.get("message").trim()) {
       newErrors.message = "Message cannot be empty";
     }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -44,9 +48,8 @@ const Contact = () => {
         "reZU1z7V956aDc-6X"
       )
       .then(
-        (result) => {
-          console.log(result.text);
-          toast.success(" Message sent successfully!", {
+        () => {
+          toast.success("Message sent successfully!", {
             position: "top-right",
             autoClose: 3000,
           });
@@ -54,9 +57,8 @@ const Contact = () => {
           setErrors({});
           setLoading(false);
         },
-        (error) => {
-          console.log(error.text);
-          toast.error(" Failed to send message. Try again later.", {
+        () => {
+          toast.error("Failed to send message. Try again later.", {
             position: "top-right",
             autoClose: 3000,
           });
@@ -76,25 +78,41 @@ const Contact = () => {
 
         <form ref={form} onSubmit={sendEmail} className="contact-form">
           <div className="form-group">
-            <label htmlFor="name">Full Name</label>
-            <input type="text" name="user_name" placeholder="e.g., Samrat Desai"  />
-            {errors.user_name && <p className="error-text">{errors.user_name}</p>}
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="user_name"
+              placeholder="e.g., Samrat Desai"
+            />
+            {errors.user_name && (
+              <p className="error-text">{errors.user_name}</p>
+            )}
           </div>
+
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input type="email" name="user_email" placeholder="e.g., you@example.com"  />
-            {errors.user_email && <p className="error-text">{errors.user_email}</p>}
+            <label>Email Address</label>
+            <input
+              type="email"
+              name="user_email"
+              placeholder="e.g., you@example.com"
+            />
+            {errors.user_email && (
+              <p className="error-text">{errors.user_email}</p>
+            )}
           </div>
+
           <div className="form-group">
-            <label htmlFor="message">Message</label>
+            <label>Message</label>
             <textarea
               name="message"
               rows="5"
               placeholder="Let me know how I can help you..."
-              
             />
-            {errors.message && <p className="error-text">{errors.message}</p>}
+            {errors.message && (
+              <p className="error-text">{errors.message}</p>
+            )}
           </div>
+
           <button type="submit" className="send-btn" disabled={loading}>
             {loading ? "Sending..." : "Send Message"}
           </button>

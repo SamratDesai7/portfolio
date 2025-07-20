@@ -1,62 +1,61 @@
-// src/components/About.jsx
 import React from "react";
 import "./About.css";
 
 const About = () => {
   return (
-    <section className="about-container animated-bg" id="about">
+    <section id="about" className="about-container animated-bg">
       <div className="about-content">
-        <h2>
-          About <span className="highlight">Me</span>
-        </h2>
-        <p className="aboutmeinfo" >
-          I’m <strong>Samrat Desai</strong>, a passionate Full Stack Developer
-          (Java + MERN) who loves creating beautiful, efficient, and scalable
-          web applications. I constantly experiment with modern technologies and
-          aim to build user-friendly interfaces and powerful backend systems.
+        <h2>About <span className="highlight">Me</span></h2>
+
+        <p className="aboutmeinfo">
+          I'm a passionate <span className="highlight">Full Stack Developer</span> with experience in building responsive, user-friendly, and performant web applications. 
+          I enjoy translating ideas into code, solving real-world problems, and continuously learning modern technologies.
         </p>
 
         <div className="about-grid">
+          {/* Box 1 - Skills */}
           <div className="about-box">
-            <h3>Programming Languages</h3>
+            <h3>Technical Skills</h3>
             <ul>
-              <li>Java</li>
-              <li>C++</li>
-              <li>JavaScript</li>
-              <li>Python</li>
-              <li>PHP</li>
+              <li>JavaScript, TypeScript</li>
+              <li>React.js, Next.js</li>
+              <li>Node.js, Express.js</li>
+              <li>MongoDB, MySQL</li>
+              <li>Git, GitHub, VS Code</li>
             </ul>
           </div>
 
+          {/* Box 2 - Tools */}
           <div className="about-box">
-            <h3>Frontend & UI</h3>
+            <h3>Tools & Platforms</h3>
             <ul>
-              <li>React.js</li>
-              <li>Material UI</li>
-              <li>Bootstrap</li>
-              <li>Tailwind CSS</li>
-              <li>HTML & CSS</li>
+              <li>Postman, Figma</li>
+              <li>Netlify, Vercel</li>
+              <li>Firebase, Supabase</li>
+              <li>Render, Railway</li>
+              <li>Linux, Windows</li>
             </ul>
           </div>
 
+          {/* Box 3 - Soft Skills */}
           <div className="about-box">
-            <h3>Backend & Frameworks</h3>
+            <h3>Soft Skills</h3>
             <ul>
-              <li>Spring Boot</li>
-              <li>Node.js & Express</li>
-              <li>JSP & Servlets</li>
-              <li>RESTful APIs</li>
+              <li>Team Collaboration</li>
+              <li>Critical Thinking</li>
+              <li>Problem Solving</li>
+              <li>Adaptability</li>
+              <li>Time Management</li>
             </ul>
           </div>
 
+          {/* Box 4 - Education */}
           <div className="about-box">
-            <h3>Tools & Databases</h3>
+            <h3>Education</h3>
             <ul>
-              <li>Git & GitHub</li>
-              <li>Postman</li>
-              <li>MongoDB</li>
-              <li>MySQL</li>
-              <li>VS Code, IntelliJ</li>
+              <li>Bachelor's in Computer Applications</li>
+              <li>Full Stack MERN Bootcamp</li>
+              <li>Java Backend Development (Ongoing)</li>
             </ul>
           </div>
         </div>

@@ -1,5 +1,11 @@
-/* src/components/About.css */
+/* Root Theme Variables (Make sure you have these in your global CSS or :root) */
+:root {
+  --navbar-bg: #0a192f;
+  --navbar-text: #e2e8f0;
+  --navbar-hover: #00e5ff;
+}
 
+/* Main container */
 .about-container {
   display: flex;
   justify-content: center;
@@ -11,17 +17,14 @@
   background: var(--navbar-bg);
   color: var(--navbar-text);
 }
-.aboutmeinfo{
-  text-align: justify;
-}
 
-/* Match animated glowing background like Home */
+/* Glowing Background */
 .animated-bg::before {
   content: "";
   position: absolute;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, #00e5ff55, transparent 70%);
+  background: radial-gradient(circle, #00e5ff44, transparent 70%);
   border-radius: 50%;
   top: -200px;
   left: -150px;
@@ -31,13 +34,14 @@
 
 @keyframes float {
   0% {
-    transform: translateY(0px) translateX(0px);
+    transform: translateY(0) translateX(0);
   }
   100% {
     transform: translateY(40px) translateX(30px);
   }
 }
 
+/* About Content */
 .about-content {
   max-width: 1200px;
   z-index: 1;
@@ -49,35 +53,40 @@
 }
 
 .about-content p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.8;
   color: #cbd5e1;
   margin-bottom: 40px;
+  text-align: justify;
 }
 
 .highlight {
   color: var(--navbar-hover);
+  font-weight: bold;
 }
 
-/* Grid & Boxes */
+/* Grid layout */
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
 }
 
+/* Box Styling */
 .about-box {
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 1.8rem;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
-  transition: transform 0.3s ease;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 229, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .about-box:hover {
   transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 229, 255, 0.15);
 }
 
 .about-box h3 {
@@ -92,31 +101,37 @@
 .about-box ul {
   list-style: none;
   padding-left: 0;
+  margin: 0;
 }
 
 .about-box ul li {
   color: #e2e8f0;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   padding-left: 1.2rem;
   position: relative;
+  font-size: 1rem;
 }
 
 .about-box ul li::before {
-  content: "›";
+  content: "▸";
   position: absolute;
   left: 0;
   color: var(--navbar-hover);
   font-weight: bold;
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
   .about-container {
     padding: 80px 5%;
     text-align: center;
   }
 
-  .about-grid {
-    grid-template-columns: 1fr;
+  .about-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .about-box {
+    padding: 1.5rem;
   }
 }

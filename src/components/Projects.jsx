@@ -7,7 +7,7 @@ const Projects = () => {
       title: "Counter",
       description:
         "Counter App is a simple interactive tool that lets you increment, decrement, and reset values with real-time updates.",
-      tech: "React,css",
+      tech: "React, CSS",
       github: "https://github.com/SamratDesai7/Counter",
       live: "https://counter-ten-gamma.vercel.app/",
     },
@@ -29,7 +29,8 @@ const Projects = () => {
     },
     {
       title: "StopWatch",
-      description: "Stopwatch App is a precise timer tool that lets you start, pause, and reset time tracking effortlessly.",
+      description:
+        "Stopwatch App is a precise timer tool that lets you start, pause, and reset time tracking effortlessly.",
       tech: "HTML, CSS, JavaScript",
       github: "https://github.com/SamratDesai7/StopWatch",
       live: "https://samratdesai7.github.io/StopWatch/",
@@ -38,15 +39,15 @@ const Projects = () => {
       title: "Expense Tracker",
       description:
         "Expense Tracker is a sleek web app to manage and visualize your daily income and expenses in real time.",
-      tech: "HTML,CSS,JS,BOOTSTRAP",
+      tech: "HTML, CSS, JavaScript, Bootstrap",
       github: "https://github.com/SamratDesai7/Expense-Tracker",
       live: "https://samratdesai7.github.io/Expense-Tracker/",
     },
     {
-      title: "PortFolio",
+      title: "Portfolio",
       description:
         "Personal Portfolio showcasing my projects, skills, and resume with smooth navigation, interactive UI, and modern responsive design.",
-      tech: "React,css",
+      tech: "React, CSS",
       github: "https://github.com/SamratDesai7/portfolio.git",
       live: "https://portfolio-wheat-alpha-21.vercel.app/",
     },
@@ -54,37 +55,42 @@ const Projects = () => {
 
   return (
     <section className="projects" id="projects">
-      <h2 className="section-title">Projects</h2>
-      <div className="project-cards">
-        {projectList.map((project, idx) => (
-          <div className="project-card" key={idx}>
-            <h3>{project.title}</h3>
-            <p className="project-description" >{project.description}</p>
-            <p className="tech" >
-              <strong>Tech:</strong> {project.tech}
-            </p>
-            <div className="project-buttons">
-              <a
-                className="btn"
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub Repo
-              </a>
-              {project.live && project.live !== "#" && (
+      <div className="projects-container">
+        <h2 className="section-title">Projects</h2>
+
+        <div className="project-cards">
+          {projectList.map((project, idx) => (
+            <article className="project-card" key={idx}>
+              <h3>{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+              <p className="tech">
+                <strong>Tech Stack:</strong> {project.tech}
+              </p>
+              <div className="project-buttons">
                 <a
-                  className="btn btn-outline"
-                  href={project.live}
+                  className="btn"
+                  href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`GitHub repo for ${project.title}`}
                 >
-                  Live Demo
+                  GitHub Repo
                 </a>
-              )}
-            </div>
-          </div>
-        ))}
+                {project.live && (
+                  <a
+                    className="btn btn-outline"
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Live demo of ${project.title}`}
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
