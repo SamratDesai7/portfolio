@@ -11,6 +11,9 @@
   background: var(--navbar-bg);
   color: var(--navbar-text);
 }
+.aboutmeinfo{
+  text-align: justify;
+}
 
 /* Match animated glowing background like Home */
 .animated-bg::before {

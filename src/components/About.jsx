@@ -9,7 +9,7 @@ const About = () => {
         <h2>
           About <span className="highlight">Me</span>
         </h2>
-        <p>
+        <p className="aboutmeinfo" >
           I’m <strong>Samrat Desai</strong>, a passionate Full Stack Developer
           (Java + MERN) who loves creating beautiful, efficient, and scalable
           web applications. I constantly experiment with modern technologies and

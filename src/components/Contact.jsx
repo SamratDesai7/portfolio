@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,9 +6,35 @@ import "./Contact.css";
 
 const Contact = () => {
   const form = useRef();
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validate = (formData) => {
+    let newErrors = {};
+    if (!formData.get("user_name").trim()) {
+      newErrors.user_name = "Name is required";
+    }
+    const email = formData.get("user_email").trim();
+    if (!email) {
+      newErrors.user_email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.user_email = "Email is invalid";
+    }
+    if (!formData.get("message").trim()) {
+      newErrors.message = "Message cannot be empty";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
+    if (loading) return;
+
+    const formData = new FormData(form.current);
+    if (!validate(formData)) return;
+
+    setLoading(true);
 
     emailjs
       .sendForm(
@@ -25,6 +51,8 @@ const Contact = () => {
             autoClose: 3000,
           });
           form.current.reset();
+          setErrors({});
+          setLoading(false);
         },
         (error) => {
           console.log(error.text);
@@ -32,6 +60,7 @@ const Contact = () => {
             position: "top-right",
             autoClose: 3000,
           });
+          setLoading(false);
         }
       );
   };
@@ -48,21 +77,13 @@ const Contact = () => {
         <form ref={form} onSubmit={sendEmail} className="contact-form">
           <div className="form-group">
             <label htmlFor="name">Full Name</label>
-            <input
-              type="text"
-              name="user_name"
-              placeholder="e.g., Samrat Desai"
-              required
-            />
+            <input type="text" name="user_name" placeholder="e.g., Samrat Desai"  />
+            {errors.user_name && <p className="error-text">{errors.user_name}</p>}
           </div>
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
-            <input
-              type="email"
-              name="user_email"
-              placeholder="e.g., you@example.com"
-              required
-            />
+            <input type="email" name="user_email" placeholder="e.g., you@example.com"  />
+            {errors.user_email && <p className="error-text">{errors.user_email}</p>}
           </div>
           <div className="form-group">
             <label htmlFor="message">Message</label>
@@ -70,11 +91,12 @@ const Contact = () => {
               name="message"
               rows="5"
               placeholder="Let me know how I can help you..."
-              required
+              
             />
+            {errors.message && <p className="error-text">{errors.message}</p>}
           </div>
-          <button type="submit" className="send-btn">
-            Send Message
+          <button type="submit" className="send-btn" disabled={loading}>
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>

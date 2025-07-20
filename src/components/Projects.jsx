@@ -59,8 +59,8 @@ const Projects = () => {
         {projectList.map((project, idx) => (
           <div className="project-card" key={idx}>
             <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <p>
+            <p className="project-description" >{project.description}</p>
+            <p className="tech" >
               <strong>Tech:</strong> {project.tech}
             </p>
             <div className="project-buttons">
