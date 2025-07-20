@@ -26,3 +26,24 @@
 html {
   scroll-behavior: smooth;
 }
+/* Force Roboto for body text */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif !important;
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+}
+
+/* Force Poppins for headings */
+h1, h2, h3, h4, h5, h6, .section-title {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Apply Poppins to buttons and form inputs */
+button,
+input,
+textarea,
+select {
+  font-family: 'Poppins', sans-serif !important;
+}
