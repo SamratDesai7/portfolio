@@ -1,0 +1,28 @@
+/* ==== Custom Scrollbar ==== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navbar-bg);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--navbar-hover);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00e5ffb0; /* lighter on hover */
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--navbar-hover) var(--navbar-bg);
+}
+html {
+  scroll-behavior: smooth;
+}

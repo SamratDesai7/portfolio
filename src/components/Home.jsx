@@ -6,7 +6,7 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <div className="home-container animated-bg">
+    <section className="home-container animated-bg" id="home">
       <div className="home-content">
         <h1>
           Hi, I'm <span className="highlight">Samrat Desai</span>
@@ -36,15 +36,21 @@ const Home = () => {
         </p>
 
         <div className="home-buttons">
-          <a href="#projects" className="btn-primary">
+          <a
+            href="#projects"
+            className="btn-primary"
+            aria-label="Navigate to Projects Section"
+          >
             View Projects
           </a>
+
           <a
             href="/SAMRAT.pdf"
-            download="/SAMRAT.pdf"
+            download="SAMRAT.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"
+            aria-label="Download Resume PDF"
           >
             Download Resume
           </a>
@@ -52,9 +58,9 @@ const Home = () => {
       </div>
 
       <div className="home-image">
-        <img src={profileImg} alt="Hero Illustration" />
+        <img src={profileImg} alt="Samrat Desai Profile" />
       </div>
-    </div>
+    </section>
   );
 };
 
