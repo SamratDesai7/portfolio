@@ -1,12 +1,76 @@
-# React + Vite
+# 💼 Samrat Desai – Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio Banner](https://img.shields.io/badge/Portfolio-React-blueviolet?style=for-the-badge&logo=react)  
+A modern, fully responsive, and visually appealing personal developer portfolio built with **React**, **CSS**, and **JavaScript**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+🌐 [Visit My Portfolio](https://portfolio-wheat-alpha-21.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧑‍💻 About Me
+
+Hello! I’m **Samrat Desai**, a passionate Full Stack Developer skilled in **Java**, **MERN Stack**, and modern UI/UX. This portfolio showcases my projects, technical skills, contact information, and more — all crafted to leave a strong impression.
+
+---
+
+## ✨ Features
+
+- 🧑‍💼 About Me section with professional summary  
+- 💻 Projects gallery with live links and source code  
+- 📱 Fully responsive design (mobile + desktop)  
+- 🎨 Custom dark-themed UI with smooth transitions  
+- 💬 Contact form with EmailJS integration and Toast notifications  
+- 🧠 Typewriter effect for roles like *"MERN Stack Developer"*  
+- 🌌 Gradient backgrounds, particles, and custom font styling
+
+---
+
+## 🛠️ Tech Stack
+
+| Frontend      | Deployment     | Styling      | Email Handling |
+|---------------|----------------|--------------|----------------|
+| React         | GitHub Pages   | CSS3         | EmailJS        |
+| JavaScript ES6| Netlify *(optional)* | Responsive Design | Toastify       |
+
+---
+
+
+## 📂 Folder Structure
+
+```bash portfolio/
+│
+├── public/
+│ └── index.html
+│
+├── src/
+│ ├── assets/
+│ ├── components/
+│ ├── App.js
+│ └── index.js
+│
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+
+---
+
+## 🧾 Setup & Run Locally
+
+```bash
+# Clone the repo
+git clone https://github.com/SamratDesai7/portfolio.git
+
+# Go to the project directory
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
