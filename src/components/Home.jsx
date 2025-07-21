@@ -15,12 +15,8 @@ const Home = () => {
         <h2>
           <span className="typed-text">
             <Typewriter
-              words={[
-                "Full Stack Developer",
-                "Java Backend Engineer",
-                "MERN Stack Developer",
-              ]}
-              loop={0}
+              words={["Full Stack Developer"]}
+              loop={1}
               cursor
               cursorStyle="|"
               typeSpeed={70}
