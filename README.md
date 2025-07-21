@@ -34,7 +34,7 @@ Hello! I’m **Samrat Desai**, a passionate Full Stack Developer skilled in **Ja
 | Frontend      | Deployment     | Styling      | Email Handling |
 |---------------|----------------|--------------|----------------|
 | React         | GitHub Pages   | CSS3         | EmailJS        |
-| JavaScript ES6| Netlify *(optional)* | Responsive Design | Toastify       |
+| JavaScript ES6| Versel | Responsive Design | Toastify       |
 
 ---
 
