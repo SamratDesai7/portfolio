@@ -1,5 +1,5 @@
 # 💼 Samrat Desai – Developer Portfolio
-
+ 
 ![Portfolio Banner](https://img.shields.io/badge/Portfolio-React-blueviolet?style=for-the-badge&logo=react)  
 A modern, fully responsive, and visually appealing personal developer portfolio built with **React**, **CSS**, and **JavaScript**.
 
