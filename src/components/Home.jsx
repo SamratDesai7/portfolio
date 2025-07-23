@@ -41,8 +41,8 @@ const Home = () => {
           </a>
 
           <a
-            href="/SAMRAT.pdf"
-            download="SAMRAT.pdf"
+            href="/SAMRAT_Resume.pdf"
+            download="SAMRAT_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"
