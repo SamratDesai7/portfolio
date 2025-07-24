@@ -4,12 +4,12 @@ import "./Projects.css";
 const Projects = () => {
   const projectList = [
     {
-      title: "Counter",
+      title: "Weather App",
       description:
-        "Counter App is a simple interactive tool that lets you increment, decrement, and reset values with real-time updates.",
-      tech: "React, CSS",
-      github: "https://github.com/SamratDesai7/Counter",
-      live: "https://counter-ten-gamma.vercel.app/",
+        "Weather App is a user-friendly tool that provides real-time weather updates, allowing you to search and view current temperature, location-based conditions, and more with a clean, responsive interface.",
+      tech: "React, CSS,Api",
+      github: "https://github.com/SamratDesai7/WeatherApp",
+      live: "https://weather-app-tau-six-41.vercel.app/",
     },
     {
       title: "ToDo App",
