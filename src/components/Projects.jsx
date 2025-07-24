@@ -6,7 +6,7 @@ const Projects = () => {
     {
       title: "Weather App",
       description:
-        "Weather App is a user-friendly tool that provides real-time weather updates, allowing you to search and view current temperature, location-based conditions, and more with a clean, responsive interface.",
+        "Weather App is a user-friendly tool that provides real-time weather updates, allowing you to search and view current temperature, location-based conditions.",
       tech: "React, CSS,Api",
       github: "https://github.com/SamratDesai7/WeatherApp",
       live: "https://weather-app-tau-six-41.vercel.app/",
