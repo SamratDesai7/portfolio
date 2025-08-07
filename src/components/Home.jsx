@@ -42,7 +42,7 @@ const Home = () => {
 
           <a
             href="/SAMRAT_Resume.pdf"
-            download="SAMRAT_Resume.pdf"
+            download="Samrat_Desai_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"
