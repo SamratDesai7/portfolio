@@ -1,24 +1,29 @@
 import React, { useState } from "react";
-import "./Navbar.css";
-import logo from "../assets/favicon.png"; // ✅ Ensure correct path
+import { motion } from "framer-motion";
 
 const navItems = ["home", "about", "projects", "contact"];
+
+const navContainer = {
+  hidden: { opacity: 0, y: -30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const navItem = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-
-  const toggleMenu = () => {
-    const body = document.body;
-
-    if (!isMobileMenuOpen) {
-      body.classList.add("menu-open"); // Disable background scroll
-    } else {
-      body.classList.remove("menu-open");
-    }
-
-    setMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   const handleNavClick = (id) => {
     const element = document.getElementById(id);
@@ -26,55 +31,85 @@ const Navbar = () => {
       element.scrollIntoView({ behavior: "smooth" });
       setActiveSection(id);
       setMobileMenuOpen(false);
-      document.body.classList.remove("menu-open"); // Re-enable scroll
-    } else {
-      console.warn(`Element with ID "${id}" not found.`);
     }
   };
 
   return (
-    <nav className="navbar">
-      {/* Logo */}
-      <div
-        className="logo"
-        role="button"
-        tabIndex={0}
-        onClick={() => handleNavClick("home")}
-        onKeyDown={(e) => e.key === "Enter" && handleNavClick("home")}
-      >
-        <img src={logo} alt="Logo" className="navbar-logo" />
-        <span className="logo-text">Samrat Desai</span>
+    <motion.nav
+      variants={navContainer}
+      initial="hidden"
+      animate="visible"
+      className="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/95 backdrop-blur-md border-b border-gray-800"
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+        {/* Logo */}
+        <motion.div
+          variants={navItem}
+          onClick={() => handleNavClick("home")}
+          className="flex items-center gap-3 cursor-pointer group"
+        >
+          <div className="flex flex-col leading-tight">
+            <span className="text-white text-xl font-semibold tracking-wider">
+              SAMRAT
+            </span>
+            <span className="text-xs text-gray-400">
+              Java Full Stack Developer
+            </span>
+          </div>
+        </motion.div>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-10 text-gray-300 font-medium">
+          {navItems.map((item) => (
+            <motion.li key={item} variants={navItem}>
+              <button
+                onClick={() => handleNavClick(item)}
+                className={`cursor-pointer capitalize transition-all duration-300 hover:text-[#34d399] ${
+                  activeSection === item ? "text-[#34d399]" : "text-gray-300"
+                }`}
+              >
+                {item}
+              </button>
+            </motion.li>
+          ))}
+        </ul>
+
+        {/* Mobile Toggle */}
+        <motion.button
+          variants={navItem}
+          className="md:hidden text-white text-3xl"
+          onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? "✕" : "☰"}
+        </motion.button>
       </div>
 
-      {/* Hamburger Icon (☰ always visible) */}
-      <div
-        className="menu-icon"
-        onClick={toggleMenu}
-        role="button"
-        tabIndex={0}
-        aria-label="Toggle menu"
-        onKeyDown={(e) => e.key === "Enter" && toggleMenu()}
+      {/* Mobile Menu */}
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={
+          isMobileMenuOpen
+            ? { height: "auto", opacity: 1 }
+            : { height: 0, opacity: 0 }
+        }
+        transition={{ duration: 0.3 }}
+        className="md:hidden overflow-hidden bg-[#0b1220] border-t border-gray-800"
       >
-        ☰
-      </div>
-
-      {/* Navigation Links */}
-      <ul className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
-        {navItems.map((item) => (
-          <li key={item}>
-            <a
-              role="button"
-              tabIndex={0}
-              className={activeSection === item ? "active" : ""}
+        <div className="flex flex-col items-center gap-6 py-6 text-gray-300 text-lg">
+          {navItems.map((item) => (
+            <button
+              key={item}
               onClick={() => handleNavClick(item)}
-              onKeyDown={(e) => e.key === "Enter" && handleNavClick(item)}
+              className={`capitalize transition duration-300 hover:text-[#34d399] ${
+                activeSection === item ? "text-[#34d399]" : ""
+              }`}
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+              {item}
+            </button>
+          ))}
+        </div>
+      </motion.div>
+    </motion.nav>
   );
 };
 

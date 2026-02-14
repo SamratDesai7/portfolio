@@ -1,8 +1,26 @@
 import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Contact.css";
+
+const containerVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 const Contact = () => {
   const form = useRef();
@@ -45,7 +63,7 @@ const Contact = () => {
         "service_vnygvw9",
         "template_1l8ec3r",
         form.current,
-        "reZU1z7V956aDc-6X"
+        "reZU1z7V956aDc-6X",
       )
       .then(
         () => {
@@ -63,61 +81,101 @@ const Contact = () => {
             autoClose: 3000,
           });
           setLoading(false);
-        }
+        },
       );
   };
 
   return (
-    <section className="contact" id="contact">
-      <div className="contact-container">
-        <h2 className="section-title">Contact Me</h2>
-        <p className="contact-subtext">
+    <section
+      id="contact"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#0b1220] py-20"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0b1220] via-[#0e1a2b] to-[#111827]" />
+
+      <div className="absolute inset-0">
+        <div className="absolute right-147 top-0 w-[20%] h-full bg-[#0f1f33] skew-x-[40deg] origin-top-right opacity-60"></div>
+      </div>
+
+      {/* Content */}
+      <motion.div
+        variants={containerVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative z-10 max-w-4xl mx-auto px-6 w-full text-center"
+      >
+        <motion.h2
+          variants={itemVariant}
+          className="text-4xl sm:text-5xl font-bold text-white mb-6"
+        >
+          Contact <span className="text-[#34d399]">Me</span>
+        </motion.h2>
+
+        <motion.p variants={itemVariant} className="text-gray-400 mb-12">
           I’d love to hear from you — whether you have a question, an
           opportunity, or just want to say hello.
-        </p>
+        </motion.p>
 
-        <form ref={form} onSubmit={sendEmail} className="contact-form">
-          <div className="form-group">
-            <label>Full Name</label>
+        <motion.form
+          ref={form}
+          onSubmit={sendEmail}
+          variants={containerVariant}
+          className="bg-[#111827] border border-gray-800 rounded-xl p-8 text-left"
+        >
+          {/* Name */}
+          <motion.div variants={itemVariant} className="mb-6">
+            <label className="block text-gray-300 mb-2">Full Name</label>
             <input
               type="text"
               name="user_name"
               placeholder="e.g., Samrat Desai"
+              className="w-full bg-[#0f172a] border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#34d399]"
             />
             {errors.user_name && (
-              <p className="error-text">{errors.user_name}</p>
+              <p className="text-red-400 text-sm mt-2">{errors.user_name}</p>
             )}
-          </div>
+          </motion.div>
 
-          <div className="form-group">
-            <label>Email Address</label>
+          {/* Email */}
+          <motion.div variants={itemVariant} className="mb-6">
+            <label className="block text-gray-300 mb-2">Email Address</label>
             <input
               type="email"
               name="user_email"
               placeholder="e.g., you@example.com"
+              className="w-full bg-[#0f172a] border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#34d399]"
             />
             {errors.user_email && (
-              <p className="error-text">{errors.user_email}</p>
+              <p className="text-red-400 text-sm mt-2">{errors.user_email}</p>
             )}
-          </div>
+          </motion.div>
 
-          <div className="form-group">
-            <label>Message</label>
+          {/* Message */}
+          <motion.div variants={itemVariant} className="mb-6">
+            <label className="block text-gray-300 mb-2">Message</label>
             <textarea
               name="message"
               rows="5"
               placeholder="Let me know how I can help you..."
+              className="w-full bg-[#0f172a] border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#34d399] resize-none"
             />
             {errors.message && (
-              <p className="error-text">{errors.message}</p>
+              <p className="text-red-400 text-sm mt-2">{errors.message}</p>
             )}
-          </div>
+          </motion.div>
 
-          <button type="submit" className="send-btn" disabled={loading}>
+          <motion.button
+            variants={itemVariant}
+            type="submit"
+            disabled={loading}
+            className="w-full bg-[#34d399] text-black font-semibold py-3 rounded-md hover:bg-[#2eb885] transition duration-300"
+          >
             {loading ? "Sending..." : "Send Message"}
-          </button>
-        </form>
-      </div>
+          </motion.button>
+        </motion.form>
+      </motion.div>
+
       <ToastContainer />
     </section>
   );
