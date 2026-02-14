@@ -92,7 +92,7 @@ const Home = () => {
             className="mt-8 flex flex-wrap items-center gap-6"
           >
             <a
-              href="/Samrat_Desai_Resume.pdf"
+              href="/Samrat_Desai_Java_Full_Stack_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-[#34d399] text-black font-bold rounded-lg hover:bg-[#2eb885] transition duration-300"
