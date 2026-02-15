@@ -50,7 +50,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#0b1220] py-20"
+      className="scroll-mt-20 relative min-h-screen flex items-center overflow-hidden bg-[#0b1220] py-20"
     >
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0b1220] via-[#0e1a2b] to-[#111827]" />
