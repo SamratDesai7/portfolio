@@ -27,7 +27,7 @@ const Footer = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="relative bg-[#0b1220] border-t border-gray-800"
+      className="scroll-mt-20 relative bg-[#0b1220] border-t border-gray-800"
     >
       {/* Background Layer */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0b1220] via-[#0e1a2b] to-[#111827]" />
