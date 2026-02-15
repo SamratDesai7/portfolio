@@ -13,10 +13,12 @@ const App = () => {
     <>
       <NavBar />
 
-      <Home />
-      <About />
-      <Projects />
-      <Contact />
+ <main className="pt-20">
+  <Home />
+  <About />
+  <Projects />
+  <Contact />
+</main>
 
       <Footer />
     </>
